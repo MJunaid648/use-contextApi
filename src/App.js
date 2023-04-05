@@ -2,6 +2,7 @@ import A from "./A";
 import React from "react";
 import { useState } from "react";
 import SecondA from "./SecondA";
+import UseRef from "./UseRef";
 
 export const userContext = React.createContext();
 function App() {
@@ -9,15 +10,16 @@ function App() {
   const toggleName = () => {
     name === "Junaid" ? setName("Muhammad Junaid") : setName("Junaid");
   };
-  return (
-    <>
-      <h1>App</h1>
+  return (<>
+    <div style={{ backgroundColor: "rgba(15,362,125,1)" }}>
+      <h1 style={{ textAlign: "center" }}>App</h1>
       <div
         style={{
           padding: "10px",
           display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           gap: "25px",
-          backgroundColor: "rgba(15,362,125,1)",
         }}
       >
         <userContext.Provider value={{ name, toggleName }}>
@@ -25,6 +27,8 @@ function App() {
           <SecondA />
         </userContext.Provider>
       </div>
+    </div>
+    <UseRef/>
     </>
   );
 }
